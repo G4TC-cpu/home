@@ -1,683 +1,406 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>G4TC Credentials Section — Paste Into GHL</title>
+<title>Gaines 4 The Culture LLC — Financial Advisory & Community Strategy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════════════════════════════════
-   LOCKED BRAND PALETTE — DO NOT CHANGE
-═══════════════════════════════════════════ */
 :root {
-  --bg:       #FFFBF0;   /* Background / Form Canvas    */
-  --green:    #6F7F3D;   /* Primary Brand Green          */
-  --brown:    #5B381A;   /* Dark Accent / Text           */
-  --yellow:   #DED56E;   /* Highlight / Icons / Accents  */
-  --body:     #2F2F2F;   /* Body Text                    */
-  --white:    #FFFFFF;
-  --rule:     rgba(91,56,26,0.12);
-  --green-light: rgba(111,127,61,0.10);
-  --brown-light: rgba(91,56,26,0.08);
-  --yellow-light: rgba(222,213,110,0.20);
-  --display:  'Cormorant Garamond', Georgia, serif;
-  --sans:     'Outfit', sans-serif;
-  --mono:     'DM Mono', monospace;
+  --sage:       #2C5545;
+  --sage-mid:   #3D7A60;
+  --sage-light: #EAF2EC;
+  --sage-pale:  #F4F9F5;
+  --gold:       #B8892A;
+  --gold-mid:   #D4A843;
+  --gold-light: #F5E8C4;
+  --gold-pale:  #FDF9EE;
+  --ink:        #181818;
+  --ink-mid:    #3A3A3A;
+  --ink-soft:   #6B6B6B;
+  --cream:      #F9F6F0;
+  --white:      #FFFFFF;
+  --rule:       rgba(28,28,28,0.10);
+  --serif:      'Cormorant Garamond', Georgia, serif;
+  --sans:       'Outfit', sans-serif;
+  --mono:       'Space Mono', monospace;
 }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: var(--sans);
-  background: var(--bg);
-  color: var(--body);
-  font-size: 15px;
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
 
-/* ═══════════════════════════════════════════
-   ABOUT / BIO SECTION  ← paste this whole block
-═══════════════════════════════════════════ */
-.about-section {
-  background: var(--bg);
-  padding: 72px 5vw;
-  max-width: 1100px;
-  margin: 0 auto;
-}
+/* ── TEXTURE OVERLAY ── */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 340px 1fr;
-  gap: 64px;
-  align-items: start;
-}
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;height:70px;background:rgba(249,246,240,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);transition:background .3s}
+.nav-brand{display:flex;flex-direction:column;gap:1px}
+.nav-brand .name{font-family:var(--serif);font-size:18px;font-weight:600;letter-spacing:.02em;color:var(--ink)}
+.nav-brand .tag{font-family:var(--mono);font-size:9px;color:var(--gold);letter-spacing:.18em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-family:var(--sans);font-size:13px;font-weight:400;color:var(--ink-soft);text-decoration:none;letter-spacing:.02em;transition:color .2s}
+.nav-links a:hover{color:var(--sage)}
+.nav-cta{background:var(--sage)!important;color:var(--white)!important;padding:9px 22px;border-radius:1px;font-weight:500!important;letter-spacing:.04em!important}
+.nav-cta:hover{background:var(--sage-mid)!important;color:var(--white)!important}
 
-/* ── Photo card ── */
-.photo-card {
-  position: relative;
-}
-.photo-frame {
-  width: 100%;
-  aspect-ratio: 3/4;
-  overflow: hidden;
-  position: relative;
-  border: 3px solid var(--yellow);
-}
-.photo-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  display: block;
-}
-.photo-frame::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    transparent 60%,
-    rgba(91,56,26,0.15) 100%
-  );
-}
-/* Offset decorative border behind photo */
-.photo-card::before {
-  content: '';
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  right: -12px;
-  bottom: -12px;
-  border: 2px solid var(--green);
-  z-index: -1;
-}
+/* ── HERO ── */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;padding-top:70px;position:relative;z-index:1}
+.hero-l{background:var(--sage);padding:90px 6vw 90px 8vw;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.hero-l::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;border:80px solid rgba(184,137,42,.10)}
+.hero-l::after{content:'';position:absolute;bottom:-60px;left:-60px;width:280px;height:280px;border-radius:50%;border:50px solid rgba(184,137,42,.07)}
+.hero-r{background:var(--gold-pale);padding:90px 8vw 90px 6vw;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;border-left:1px solid rgba(184,137,42,.20)}
+.hero-r::before{content:'';position:absolute;top:60px;right:-40px;width:200px;height:200px;border-radius:50%;border:40px solid rgba(44,85,69,.06)}
 
-.photo-name {
-  margin-top: 18px;
-  text-align: center;
-}
-.photo-name h3 {
-  font-family: var(--display);
-  font-size: 24px;
-  font-weight: 600;
-  color: var(--brown);
-  margin-bottom: 3px;
-}
-.photo-name p {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--green);
-}
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.20em;text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';width:28px;height:1px;display:inline-block}
+.hero-l .eyebrow{color:var(--gold-mid)}
+.hero-l .eyebrow::before{background:var(--gold-mid)}
+.hero-r .eyebrow{color:var(--sage-mid)}
+.hero-r .eyebrow::before{background:var(--sage-mid)}
 
-/* ── Bio text side ── */
-.bio-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
+.hero-l h1,.hero-r h1{font-family:var(--serif);font-weight:300;line-height:1.12;margin-bottom:26px}
+.hero-l h1{font-size:clamp(34px,4.2vw,58px);color:var(--white)}
+.hero-r h1{font-size:clamp(34px,4.2vw,58px);color:var(--ink)}
+.hero-l h1 em{font-style:italic;color:var(--gold-light);font-weight:300}
+.hero-r h1 em{font-style:italic;color:var(--sage-mid)}
 
-.bio-eyebrow {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--yellow);
-  background: var(--brown);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  margin-bottom: 20px;
-  align-self: flex-start;
-}
+.hero-l p,.hero-r p{font-size:15px;line-height:1.78;max-width:410px;margin-bottom:38px}
+.hero-l p{color:rgba(255,255,255,.75);font-weight:300}
+.hero-r p{color:var(--ink-mid);font-weight:300}
 
-.bio-content h2 {
-  font-family: var(--display);
-  font-size: clamp(30px, 3.2vw, 44px);
-  font-weight: 300;
-  color: var(--brown);
-  line-height: 1.12;
-  margin-bottom: 20px;
-}
-.bio-content h2 em {
-  font-style: italic;
-  color: var(--green);
-}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--white);font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:16px 30px;text-decoration:none;transition:all .25s;align-self:flex-start;border:1.5px solid transparent}
+.btn-primary:hover{background:transparent;color:var(--gold);border-color:var(--gold)}
+.btn-secondary{display:inline-flex;align-items:center;gap:10px;background:var(--sage);color:var(--white);font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:16px 30px;text-decoration:none;transition:all .25s;align-self:flex-start;border:1.5px solid transparent}
+.btn-secondary:hover{background:transparent;color:var(--sage);border-color:var(--sage)}
+.btn-arrow{font-size:16px;transition:transform .2s}
+.btn-primary:hover .btn-arrow,.btn-secondary:hover .btn-arrow{transform:translateX(4px)}
 
-.bio-content p {
-  font-size: 15px;
-  font-weight: 300;
-  color: var(--body);
-  line-height: 1.80;
-  margin-bottom: 14px;
-}
-.bio-content p:last-of-type { margin-bottom: 24px; }
+/* ── DIVIDER BAR ── */
+.divider-bar{background:var(--ink);padding:15px 5vw;display:flex;align-items:center;justify-content:center;gap:28px;position:relative;z-index:1}
+.divider-bar span{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-light)}
+.divider-bar .sep{color:rgba(255,255,255,.2);font-size:12px}
 
-.bio-content p strong {
-  font-weight: 500;
-  color: var(--brown);
-}
+/* ── CREDENTIALS ── */
+.creds{background:var(--white);padding:52px 5vw;border-bottom:1px solid var(--rule);position:relative;z-index:1}
+.creds-hdr{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);text-align:center;margin-bottom:36px}
+.creds-grid{display:flex;gap:0;border:1px solid var(--rule);max-width:1100px;margin:0 auto}
+.cred{flex:1;padding:22px 24px;border-right:1px solid var(--rule);position:relative}
+.cred:last-child{border-right:none}
+.cred::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.cred:nth-child(1)::before{background:var(--sage)}
+.cred:nth-child(2)::before{background:var(--gold)}
+.cred:nth-child(3)::before{background:var(--sage-mid)}
+.cred:nth-child(4)::before{background:var(--gold-mid)}
+.cred:nth-child(5)::before{background:var(--sage)}
+.cred-abbr{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+.cred:nth-child(odd) .cred-abbr{color:var(--sage)}
+.cred:nth-child(even) .cred-abbr{color:var(--gold)}
+.cred:last-child .cred-abbr{color:var(--sage)}
+.cred-title{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--ink);margin-bottom:6px;line-height:1.3}
+.cred-desc{font-family:var(--sans);font-size:12px;color:var(--ink-soft);line-height:1.55;font-weight:300}
 
-/* Freedom Grow link */
-.freedom-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--green);
-  color: var(--white);
-  text-decoration: none;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  padding: 11px 20px;
-  align-self: flex-start;
-  transition: background 0.2s;
-  margin-bottom: 28px;
-}
-.freedom-link:hover { background: var(--brown); }
-.freedom-link .fl-arrow { font-size: 14px; }
+/* ── ABOUT ── */
+.about{max-width:1100px;margin:0 auto;padding:96px 5vw;display:grid;grid-template-columns:1.15fr 1fr;gap:80px;align-items:start;position:relative;z-index:1}
+.sec-label{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.sec-label::before{content:'';width:20px;height:1px;background:var(--gold);display:inline-block}
+.about h2{font-family:var(--serif);font-size:clamp(28px,3vw,44px);font-weight:300;line-height:1.18;color:var(--ink);margin-bottom:22px}
+.about h2 em{font-style:italic;color:var(--sage-mid)}
+.about p{font-size:15px;font-weight:300;color:var(--ink-mid);margin-bottom:16px;line-height:1.78}
+.stats-aside{background:var(--sage);padding:38px;position:relative;overflow:hidden}
+.stats-aside::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;border:30px solid rgba(255,255,255,.05)}
+.stats-aside .sa-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-light);margin-bottom:24px;display:flex;align-items:center;gap:8px}
+.stats-aside .sa-lbl::before{content:'';width:16px;height:1px;background:var(--gold-light);display:inline-block}
+.stat-item{margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.10)}
+.stat-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.stat-num{font-family:var(--serif);font-size:38px;font-weight:300;color:var(--white);line-height:1;margin-bottom:5px}
+.stat-desc{font-family:var(--sans);font-size:13px;font-weight:300;color:rgba(255,255,255,.65);line-height:1.5}
 
+/* ── WHO ── */
+.who{background:var(--white);padding:80px 5vw;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);position:relative;z-index:1}
+.who-inner{max-width:1100px;margin:0 auto}
+.who-hdr{text-align:center;margin-bottom:52px}
+.who-hdr h2{font-family:var(--serif);font-size:clamp(26px,3vw,42px);font-weight:300;color:var(--ink)}
+.who-hdr h2 em{font-style:italic;color:var(--sage-mid)}
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule)}
+.who-card{background:var(--white);padding:36px 40px}
+.who-card.tinted{background:var(--cream)}
+.who-tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px;margin-bottom:16px}
+.who-tag.cannabis{background:var(--sage-light);color:var(--sage)}
+.who-tag.cares{background:var(--gold-light);color:var(--gold)}
+.who-card h3{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--ink);margin-bottom:10px;line-height:1.25}
+.who-card p{font-size:14px;font-weight:300;color:var(--ink-mid);line-height:1.72}
 
-/* ═══════════════════════════════════════════
-   CREDENTIALS BADGES STRIP
-═══════════════════════════════════════════ */
-.creds-strip {
-  border-top: 1px solid var(--rule);
-  padding-top: 24px;
-}
+/* ── MYTHS ── */
+.myths-wrap{max-width:1100px;margin:0 auto;padding:80px 5vw;position:relative;z-index:1}
+.myths-hdr{margin-bottom:44px}
+.myths-hdr h2{font-family:var(--serif);font-size:clamp(26px,3vw,42px);font-weight:300;color:var(--ink);max-width:500px;line-height:1.2}
+.myths-hdr h2 em{font-style:italic;color:var(--sage-mid)}
+.myth-pair{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule)}
+.myth-pair:last-child{border-bottom:1px solid var(--rule)}
+.myth-cell{padding:26px 32px}
+.myth-cell.m-side{background:#FEF3F2;border-right:1px solid var(--rule)}
+.myth-cell.t-side{background:var(--sage-pale)}
+.cell-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px}
+.m-side .cell-lbl{color:#A32D2D}
+.t-side .cell-lbl{color:var(--sage)}
+.myth-cell p{font-size:14px;font-weight:300;line-height:1.68}
+.m-side p{color:#6B2222}
+.t-side p{color:#1E3E30}
 
-.cs-label {
-  font-family: var(--mono);
-  font-size: 9px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--body);
-  opacity: 0.5;
-  margin-bottom: 16px;
-}
+/* ── FREEDOM BANNER ── */
+.freedom{background:var(--ink);padding:52px 5vw;text-align:center;position:relative;z-index:1;overflow:hidden}
+.freedom::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;border:80px solid rgba(184,137,42,.05)}
+.freedom .fb-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.20em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;position:relative}
+.freedom p{font-family:var(--serif);font-size:clamp(18px,2.2vw,28px);font-weight:300;color:var(--white);max-width:700px;margin:0 auto;line-height:1.55;position:relative}
+.freedom p em{font-style:italic;color:var(--gold-light)}
 
-.badges-row {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
+/* ── DOUBLE CTA ── */
+.dcta{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);position:relative;z-index:1}
+.cta-panel{padding:70px 7vw;display:flex;flex-direction:column;gap:18px}
+.cta-panel.left{background:var(--gold-pale);border-right:1px solid var(--rule)}
+.cta-panel.right{background:var(--sage-pale)}
+.cta-panel .cp-label{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase}
+.cta-panel.left .cp-label{color:var(--gold)}
+.cta-panel.right .cp-label{color:var(--sage)}
+.cta-panel h3{font-family:var(--serif);font-size:clamp(22px,2.5vw,34px);font-weight:300;color:var(--ink);line-height:1.2;max-width:360px}
+.cta-panel p{font-size:14px;font-weight:300;color:var(--ink-mid);line-height:1.72;max-width:360px}
 
-.badge-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
+/* ── FOOTER ── */
+footer{background:var(--ink);padding:44px 5vw;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:20px;position:relative;z-index:1}
+.fl-name{font-family:var(--serif);font-size:17px;font-weight:400;color:var(--white);margin-bottom:5px}
+.fl-creds{font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:.07em;line-height:1.8}
+.fr{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.28);letter-spacing:.06em;text-align:right}
+.footer-links{display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+.footer-links a{font-family:var(--sans);font-size:12px;color:rgba(255,255,255,.4);text-decoration:none;font-weight:300}
+.footer-links a:hover{color:var(--gold-light)}
 
-.badge-img-wrap {
-  width: 68px;
-  height: 68px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--white);
-  border: 1px solid var(--rule);
-  border-radius: 4px;
-  padding: 6px;
-  transition: border-color 0.2s, transform 0.2s;
-}
-.badge-img-wrap:hover {
-  border-color: var(--yellow);
-  transform: translateY(-2px);
-}
-.badge-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.hero-l > *{animation:fadeUp .8s ease both}
+.hero-r > *{animation:fadeUp .8s ease both}
+.hero-l > *:nth-child(1){animation-delay:.05s}
+.hero-l > *:nth-child(2){animation-delay:.18s}
+.hero-l > *:nth-child(3){animation-delay:.30s}
+.hero-l > *:nth-child(4){animation-delay:.42s}
+.hero-r > *:nth-child(1){animation-delay:.20s}
+.hero-r > *:nth-child(2){animation-delay:.32s}
+.hero-r > *:nth-child(3){animation-delay:.44s}
+.hero-r > *:nth-child(4){animation-delay:.56s}
 
-.badge-name {
-  font-family: var(--mono);
-  font-size: 8px;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  color: var(--brown);
-  text-align: center;
-  max-width: 70px;
-  line-height: 1.3;
-}
-
-/* Freedom Grow badge — text only since it's a sponsor link */
-.freedom-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
-.freedom-badge-box {
-  width: 68px;
-  height: 68px;
-  background: var(--brown);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  border: 1px solid var(--brown);
-  text-decoration: none;
-  transition: background 0.2s, transform 0.2s;
-  flex-direction: column;
-  gap: 2px;
-  padding: 8px 6px;
-}
-.freedom-badge-box:hover {
-  background: var(--green);
-  transform: translateY(-2px);
-}
-.freedom-badge-box .fb-leaf {
-  font-size: 22px;
-}
-.freedom-badge-box .fb-text {
-  font-family: var(--mono);
-  font-size: 7px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--yellow);
-  text-align: center;
-  line-height: 1.2;
-}
-
-/* ═══════════════════════════════════════════
-   STANDALONE CREDENTIALS WALL BLOCK
-   (for the dedicated credentials page section)
-═══════════════════════════════════════════ */
-.creds-wall {
-  background: var(--brown);
-  padding: 64px 5vw;
-}
-
-.cw-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.cw-header {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: end;
-  margin-bottom: 48px;
-  padding-bottom: 36px;
-  border-bottom: 1px solid rgba(255,255,255,0.10);
-}
-
-.cw-header h2 {
-  font-family: var(--display);
-  font-size: clamp(28px, 3vw, 44px);
-  font-weight: 300;
-  color: var(--white);
-  line-height: 1.15;
-}
-.cw-header h2 em {
-  font-style: italic;
-  color: var(--yellow);
-}
-
-.cw-header p {
-  font-size: 14px;
-  font-weight: 300;
-  color: rgba(255,255,255,0.60);
-  line-height: 1.72;
-}
-.cw-header p strong {
-  color: rgba(255,255,255,0.90);
-  font-weight: 400;
-}
-
-.creds-full-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
-}
-
-.cred-full-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.10);
-  padding: 20px 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  transition: background 0.2s, border-color 0.2s;
-}
-.cred-full-card:hover {
-  background: rgba(255,255,255,0.09);
-  border-color: var(--yellow);
-}
-
-.cfc-badge {
-  width: 64px;
-  height: 64px;
-  object-fit: contain;
-  background: var(--white);
-  border-radius: 4px;
-  padding: 5px;
-}
-
-.cfc-abbr {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--yellow);
-  font-weight: 500;
-}
-
-.cfc-title {
-  font-family: var(--display);
-  font-size: 16px;
-  font-weight: 400;
-  color: var(--white);
-  line-height: 1.25;
-}
-
-.cfc-desc {
-  font-size: 12px;
-  font-weight: 300;
-  color: rgba(255,255,255,0.55);
-  line-height: 1.55;
-}
-
-.cfc-why {
-  font-size: 11px;
-  font-weight: 400;
-  color: var(--yellow);
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding-top: 10px;
-  line-height: 1.5;
-}
-
-/* Freedom Grow card special */
-.cred-full-card.freedom-card {
-  border-color: rgba(222,213,110,0.25);
-}
-.cred-full-card.freedom-card:hover {
-  border-color: var(--yellow);
-}
-.freedom-logo-box {
-  width: 64px;
-  height: 64px;
-  background: var(--green);
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-}
-
-/* ── Responsive ── */
-@media (max-width: 860px) {
-  .about-grid { grid-template-columns: 1fr; }
-  .photo-card { max-width: 280px; margin: 0 auto; }
-  .cw-header { grid-template-columns: 1fr; }
-  .creds-full-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 540px) {
-  .creds-full-grid { grid-template-columns: 1fr; }
-  .badges-row { gap: 10px; }
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .hero,.dcta{grid-template-columns:1fr}
+  .hero-l,.hero-r{padding:70px 6vw}
+  .hero-r{border-left:none;border-top:1px solid rgba(184,137,42,.20)}
+  .creds-grid{flex-wrap:wrap}
+  .cred{min-width:50%;border-right:none;border-bottom:1px solid var(--rule)}
+  .about{grid-template-columns:1fr;gap:40px;padding:60px 5vw}
+  .who-grid{grid-template-columns:1fr}
+  .myth-pair{grid-template-columns:1fr}
+  .myth-cell.m-side{border-right:none;border-bottom:1px solid var(--rule)}
+  .cta-panel.left{border-right:none;border-bottom:1px solid var(--rule)}
+  .nav-links{display:none}
 }
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════
-     BLOCK A — ABOUT / BIO WITH PHOTO
-     Paste this entire section into GHL as custom HTML
-═══════════════════════════════════════════ -->
-<section class="about-section">
-  <div class="about-grid">
+<nav class="nav">
+  <div class="nav-brand" style="display:flex;align-items:center">
+    <img src="https://assets.cdn.filesafe.space/2fl3hkOM4QQnDOcFNHcW/media/6902f9285170a50e55155e6f.webp" alt="Gaines 4 The Culture LLC" style="height:38px;width:auto;display:block" loading="lazy">
+  </div>
+  <div class="nav-links">
+    <a href="#cannabis">Cannabis Advisory</a>
+    <a href="#cares">G4TC C.A.R.E.S.</a>
+    <a href="#about">About</a>
+    <a href="https://calendly.com/gaines4theculturellc/30min" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
 
-    <!-- PHOTO -->
-    <div class="photo-card">
-      <div class="photo-frame">
-        <img
-          src="https://assets.cdn.filesafe.space/2fl3hkOM4QQnDOcFNHcW/media/69eb3d9e717d5dd4e195c3a2.png"
-          alt="Founder, Gaines 4 The Culture LLC"
-          loading="lazy"
-        >
-      </div>
-      <div class="photo-name">
-        <img
-          src="https://assets.cdn.filesafe.space/2fl3hkOM4QQnDOcFNHcW/media/6902f9285170a50e55155e6f.webp"
-          alt="Gaines 4 The Culture LLC logo"
-          style="max-width:180px;width:100%;height:auto;margin:0 auto;display:block"
-          loading="lazy"
-        >
-        <p style="margin-top:8px">Maryland · Freedom Grow Sponsor</p>
-      </div>
-    </div>
-
-    <!-- BIO -->
-    <div class="bio-content">
-      <span class="bio-eyebrow">About the advisor</span>
-
-      <h2>The numbers tell a story.<br><em>I make sure yours tells the right one.</em></h2>
-
-      <p>
-        I am a Maryland-based financial advisor and community reinvestment strategist.
-        I hold the <strong>NACAT Pros Certified Cannabis Seed Counter</strong> designation —
-        the only nationally recognized cannabis accounting and tax credential —
-        along with <strong>NACVA membership</strong>, <strong>NATP professional standing</strong>,
-        and <strong>MCBA Ally</strong> status.
-      </p>
-
-      <p>
-        My practice has two distinct lanes. On the cannabis side, I guide social equity
-        licensees through the financial and compliance infrastructure they need to get funded,
-        stay compliant, and open on time. On the community side, under <strong>G4TC C.A.R.E.S.</strong>,
-        I position neighborhood organizations and community founders to understand and access
-        Maryland's CRRF funds before those windows close.
-      </p>
-
-      <p>
-        I do not just know the rules. I understand what it feels like to be on the side
-        where the rules were never explained clearly. That is why I built this practice
-        around making complex financial and regulatory systems accessible
-        to the people they were designed to serve.
-      </p>
-
-      <a
-        href="https://freedomgrow.org/sponsor/gaines-4-the-culture-llc/"
-        class="freedom-link"
-        target="_blank"
-        rel="noopener"
-      >
-        Freedom Grow Sponsor <span class="fl-arrow">→</span>
-      </a>
-
-      <!-- BADGE ROW inside bio -->
-      <div class="creds-strip">
-        <div class="cs-label">Credentials &amp; Affiliations</div>
-        <div class="badges-row">
-
-          <!-- NACVA — image 1 -->
-          <div class="badge-item">
-            <div class="badge-img-wrap">
-              <img
-                src="https://assets.cdn.filesafe.space/2fl3hkOM4QQnDOcFNHcW/media/69f141aedfacb1bd314c3d1f.png"
-                alt="NACVA — National Association of Certified Valuators and Analysts"
-                loading="lazy"
-              >
-            </div>
-            <span class="badge-name">NACVA</span>
-          </div>
-
-          <!-- MCBA — image 2 -->
-          <div class="badge-item">
-            <div class="badge-img-wrap">
-              <img
-                src="https://assets.cdn.filesafe.space/2fl3hkOM4QQnDOcFNHcW/media/69f141aefab44d40206e99ae.png"
-                alt="MCBA Ally — Minority Cannabis Business Association"
-                loading="lazy"
-              >
-            </div>
-            <span class="badge-name">MCBA Ally</span>
-          </div>
-
-          <!-- NACAT Pros — image 3 -->
-          <div class="badge-item">
-            <div class="badge-img-wrap">
-              <img
-                src="https://assets.cdn.filesafe.space/2fl3hkOM4QQnDOcFNHcW/media/69f141aeeecc3af70a0ebfc3.png"
-                alt="NACAT Pros — National Association of Cannabis Accounting and Tax Professionals"
-                loading="lazy"
-              >
-            </div>
-            <span class="badge-name">NACAT Pros</span>
-          </div>
-
-          <!-- NATP — image 4 -->
-          <div class="badge-item">
-            <div class="badge-img-wrap">
-              <img
-                src="https://assets.cdn.filesafe.space/2fl3hkOM4QQnDOcFNHcW/media/69f141aec5c98840c864651d.png"
-                alt="NATP Member — National Association of Tax Professionals"
-                loading="lazy"
-              >
-            </div>
-            <span class="badge-name">NATP Member</span>
-          </div>
-
-          <!-- Freedom Grow — real logo image -->
-          <div class="badge-item">
-            <div class="badge-img-wrap" style="background:var(--brown);border-color:var(--brown)">
-              <a
-                href="https://freedomgrow.org/sponsor/gaines-4-the-culture-llc/"
-                target="_blank"
-                rel="noopener"
-                title="Freedom Grow Sponsor — View listing"
-                style="display:flex;align-items:center;justify-content:center;width:100%;height:100%"
-              >
-                <img
-                  src="https://assets.cdn.filesafe.space/2fl3hkOM4QQnDOcFNHcW/media/69f14b41d696846120fe6c52.png"
-                  alt="Freedom Grow — Sponsor listing"
-                  loading="lazy"
-                  style="width:100%;height:100%;object-fit:contain"
-                >
-              </a>
-            </div>
-            <span class="badge-name">Freedom Grow<br>Sponsor</span>
-          </div>
-
-        </div>
-      </div>
-    </div><!-- end bio-content -->
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-l" id="cannabis">
+    <span class="eyebrow">Cannabis Advisory</span>
+    <h1>Your license is the ticket in the door.<br><em>Let's get you through it.</em></h1>
+    <p>You have a Maryland cannabis license. You have 24 months to become operational. The financial and compliance steps between here and open doors are exactly where operators get stuck — or lose their license. That gap is what I close.</p>
+    <a href="page2a_cannabis_intake.html" class="btn-primary">Book Your Green Light Review <span class="btn-arrow">→</span></a>
+  </div>
+  <div class="hero-r" id="cares">
+    <span class="eyebrow">G4TC C.A.R.E.S.</span>
+    <h1>Your county has real money waiting.<br><em>Most people don't know.</em></h1>
+    <p>Maryland has distributed $93.2 million in community reinvestment funds statewide — and most of it has not been spent. If you have an idea that serves your neighborhood, you may already qualify. Let's find out.</p>
+    <a href="page2b_cares_intake.html" class="btn-secondary">Start Your C.A.R.E.S. Readiness Call <span class="btn-arrow">→</span></a>
   </div>
 </section>
 
+<div class="divider-bar">
+  <span>Community Access</span><span class="sep">·</span>
+  <span>Reinvestment</span><span class="sep">·</span>
+  <span>Equity</span><span class="sep">·</span>
+  <span>Strategy</span>
+</div>
 
-<!-- ═══════════════════════════════════════════
-     BLOCK B — FULL CREDENTIALS WALL
-     Dark background section — paste separately
-═══════════════════════════════════════════ -->
-<section class="creds-wall">
-  <div class="cw-inner">
-
-    <div class="cw-header">
-      <h2>Credentials that<br><em>prove the work.</em></h2>
-      <p>
-        Five active professional affiliations in a niche where most advisors have none.
-        Each one represents real continuing education, real standards, and
-        <strong>real accountability to a community that deserves nothing less.</strong>
-      </p>
+<!-- CREDENTIALS -->
+<section class="creds">
+  <div class="creds-hdr">Credentials &amp; Professional Affiliations</div>
+  <div class="creds-grid">
+    <div class="cred">
+      <div class="cred-abbr">NACAT</div>
+      <div class="cred-title">Certified Cannabis Seed Counter</div>
+      <div class="cred-desc">National Association of Cannabis Accounting &amp; Tax Professionals. The only nationally recognized cannabis-specific accounting credential.</div>
     </div>
-
-    <div class="creds-full-grid">
-
-      <!-- NACVA — image 1 per confirmed mapping -->
-      <div class="cred-full-card">
-        <img
-          src="https://assets.cdn.filesafe.space/2fl3hkOM4QQnDOcFNHcW/media/69f141aedfacb1bd314c3d1f.png"
-          alt="NACVA — National Association of Certified Valuators and Analysts"
-          class="cfc-badge"
-          loading="lazy"
-        >
-        <div class="cfc-abbr">NACVA</div>
-        <div class="cfc-title">Certified Valuator &amp; Analyst</div>
-        <div class="cfc-desc">National Association of Certified Valuators &amp; Analysts, member since 1991. Business valuation expertise and research database access.</div>
-        <div class="cfc-why">Powers EBITDA analysis, investor-grade Fundability Snapshots, and capital readiness assessments</div>
-      </div>
-
-      <!-- MCBA — image 2 per confirmed mapping -->
-      <div class="cred-full-card">
-        <img
-          src="https://assets.cdn.filesafe.space/2fl3hkOM4QQnDOcFNHcW/media/69f141aefab44d40206e99ae.png"
-          alt="MCBA Ally — Minority Cannabis Business Association"
-          class="cfc-badge"
-          loading="lazy"
-        >
-        <div class="cfc-abbr">MCBA Ally</div>
-        <div class="cfc-title">Minority Cannabis Business Association</div>
-        <div class="cfc-desc">Formal alignment with the national body advocating for BIPOC cannabis equity. Community trust — not a checkbox.</div>
-        <div class="cfc-why">Signals to social equity licensees that this practice is built for them, not just available to them</div>
-      </div>
-
-      <!-- NACAT Pros — image 3 per confirmed mapping -->
-      <div class="cred-full-card">
-        <img
-          src="https://assets.cdn.filesafe.space/2fl3hkOM4QQnDOcFNHcW/media/69f141aeeecc3af70a0ebfc3.png"
-          alt="NACAT Pros — National Association of Cannabis Accounting and Tax Professionals"
-          class="cfc-badge"
-          loading="lazy"
-        >
-        <div class="cfc-abbr">NACAT Pros</div>
-        <div class="cfc-title">Certified Cannabis Seed Counter</div>
-        <div class="cfc-desc">National Association of Cannabis Accounting &amp; Tax Professionals. The only nationally recognized cannabis-specific accounting credential.</div>
-        <div class="cfc-why">Direct 280E expertise, inventory cost accounting, MCA financial compliance</div>
-      </div>
-
-      <!-- NATP — image 4 per confirmed mapping -->
-      <div class="cred-full-card">
-        <img
-          src="https://assets.cdn.filesafe.space/2fl3hkOM4QQnDOcFNHcW/media/69f141aec5c98840c864651d.png"
-          alt="NATP Member — National Association of Tax Professionals"
-          class="cfc-badge"
-          loading="lazy"
-        >
-        <div class="cfc-abbr">NATP</div>
-        <div class="cfc-title">Tax Professional Member</div>
-        <div class="cfc-desc">National Association of Tax Professionals. Ongoing professional education in federal and Maryland tax law including 280E strategy for cannabis operators.</div>
-        <div class="cfc-why">Continuing education means your tax strategy reflects current law, not last year's guidance</div>
-      </div>
-
-      <!-- Freedom Grow — real logo image -->
-      <div class="cred-full-card freedom-card">
-        <a
-          href="https://freedomgrow.org/sponsor/gaines-4-the-culture-llc/"
-          target="_blank"
-          rel="noopener"
-          style="display:block;width:64px;height:64px;border-radius:4px;overflow:hidden;background:var(--green)"
-        >
-          <img
-            src="https://assets.cdn.filesafe.space/2fl3hkOM4QQnDOcFNHcW/media/69f14b41d696846120fe6c52.png"
-            alt="Freedom Grow Sponsor"
-            style="width:100%;height:100%;object-fit:contain;padding:5px"
-            loading="lazy"
-          >
-        </a>
-        <div class="cfc-abbr">Freedom Grow</div>
-        <div class="cfc-title">Listed Sponsor</div>
-        <div class="cfc-desc">
-          <a
-            href="https://freedomgrow.org/sponsor/gaines-4-the-culture-llc/"
-            target="_blank"
-            rel="noopener"
-            style="color:var(--yellow);text-decoration:none"
-          >View sponsorship listing →</a>
-        </div>
-        <div class="cfc-why">Invested in cannabis equity before it was convenient. The most honest signal of where this practice stands.</div>
-      </div>
-
-    </div><!-- end creds-full-grid -->
+    <div class="cred">
+      <div class="cred-abbr">NACVA</div>
+      <div class="cred-title">Certified Valuator &amp; Analyst</div>
+      <div class="cred-desc">National Association of Certified Valuators &amp; Analysts, member since 1991. Business valuation expertise applied to every fundability assessment.</div>
+    </div>
+    <div class="cred">
+      <div class="cred-abbr">NATP</div>
+      <div class="cred-title">Tax Professional Member</div>
+      <div class="cred-desc">National Association of Tax Professionals. Ongoing professional education in federal and Maryland tax law including 280E strategy.</div>
+    </div>
+    <div class="cred">
+      <div class="cred-abbr">MCBA</div>
+      <div class="cred-title">MCBA Ally</div>
+      <div class="cred-desc">Minority Cannabis Business Association Ally. Advocacy for the same outcomes as the operators and communities I serve.</div>
+    </div>
+    <div class="cred">
+      <div class="cred-abbr" style="color:var(--sage)">Freedom Grow</div>
+      <div class="cred-title">Listed Sponsor</div>
+      <div class="cred-desc">Sponsoring Freedom Grow before it was convenient is the most honest signal of where I stand and who I am building this for.</div>
+    </div>
   </div>
 </section>
 
+<!-- ABOUT -->
+<section>
+<div class="about" id="about">
+  <div>
+    <div class="sec-label">About Gaines 4 The Culture LLC</div>
+    <h2>The numbers tell a story.<br><em>I help yours tell the right one.</em></h2>
+    <p>I am a Maryland-based financial advisor and community reinvestment strategist. I hold the NACAT Certified Cannabis Seed Counter designation — the only nationally recognized cannabis accounting and tax credential — along with NACVA membership, NATP professional standing, and MCBA Ally status. I am a listed Freedom Grow sponsor.</p>
+    <p>My practice has two distinct lanes that reinforce each other. On the cannabis side, I guide social equity licensees through the financial and compliance infrastructure they need to get funded, stay compliant, and open on time. On the community side, under G4TC C.A.R.E.S., I position neighborhood organizations and community founders to understand and access Maryland's CRRF funds before those windows close.</p>
+    <p>I do not just know the rules. I understand what it feels like to be on the side where the rules were never explained clearly. That is why I built this practice around making complex financial and regulatory systems accessible to the people they were designed to serve.</p>
+  </div>
+  <div class="stats-aside">
+    <div class="sa-lbl">The Maryland CRRF gap — why urgency is real</div>
+    <div class="stat-item">
+      <div class="stat-num">$93.2M</div>
+      <div class="stat-desc">Distributed statewide in cannabis community reinvestment funds — designated for impacted communities</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">4 of 24</div>
+      <div class="stat-desc">Maryland counties with confirmed fund utilization — 20 counties have not deployed what they received</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">86%</div>
+      <div class="stat-desc">Of Maryland residents who do not know how to apply — the awareness gap is the access gap</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">252,961</div>
+      <div class="stat-desc">Historical cannabis charges that built this fund — disproportionately from communities who should benefit most</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- WHO -->
+<section class="who">
+  <div class="who-inner">
+    <div class="who-hdr">
+      <div class="sec-label" style="justify-content:center">Who this is for</div>
+      <h2>Two different journeys.<br><em>Both deserve a clear path.</em></h2>
+    </div>
+    <div class="who-grid">
+      <div class="who-card">
+        <span class="who-tag cannabis">Cannabis Advisory</span>
+        <h3>You hold a Maryland cannabis license</h3>
+        <p>You received a conditional license and now you are figuring out what comes next. Capital requirements. Cap tables. 280E tax obligations. MCA compliance milestones. You attended the training — but the training did not tell you how to implement any of it in your actual books. That implementation is what I do.</p>
+      </div>
+      <div class="who-card tinted">
+        <span class="who-tag cannabis">Cannabis Advisory</span>
+        <h3>You applied for funding and were denied</h3>
+        <p>You had the vision. The application looked right to you. But something in the financial picture did not satisfy the reviewer. The Fundability Snapshot shows you exactly what to address — your ratios, your documentation, your tax alignment — before your next ask.</p>
+      </div>
+      <div class="who-card tinted">
+        <span class="who-tag cares">G4TC C.A.R.E.S.</span>
+        <h3>You have an idea that serves your community</h3>
+        <p>It does not have to be a large organization. A tea circle that creates space for healing. An after-school program. A tenant rights workshop you run from a library. A pop-up wellness market. If it serves people who have been overlooked and underfunded, there may already be CRRF dollars available in your county to support it.</p>
+      </div>
+      <div class="who-card">
+        <span class="who-tag cares">G4TC C.A.R.E.S.</span>
+        <h3>You know the money exists but not how to reach it</h3>
+        <p>You heard about the CRRF fund. The county website was not clear. You closed the tab. That is the most common story — and exactly why G4TC C.A.R.E.S. exists. We translate the process into a path you can actually walk.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MYTHS -->
+<div class="myths-wrap">
+  <div class="myths-hdr">
+    <div class="sec-label">What stops people — and what is actually true</div>
+    <h2>The things people tell themselves<br><em>that are not true.</em></h2>
+  </div>
+  <div class="myth-pair">
+    <div class="myth-cell m-side"><div class="cell-lbl">The story</div><p>"I need to already be established and profitable to qualify for funding."</p></div>
+    <div class="myth-cell t-side"><div class="cell-lbl">What is actually true</div><p>Funders fund documented readiness — not history. A clear financial picture, a real plan, and the right paperwork matter more than years in business. That is exactly what the Fundability Snapshot builds.</p></div>
+  </div>
+  <div class="myth-pair">
+    <div class="myth-cell m-side"><div class="cell-lbl">The story</div><p>"My idea is too small. This is for big organizations with staff and lawyers."</p></div>
+    <div class="myth-cell t-side"><div class="cell-lbl">What is actually true</div><p>Wicomico County funded a parks department, a legal aid group, Habitat for Humanity, and a recovery resource center with CRRF money. Small, specific, and community-rooted is the whole point of these funds.</p></div>
+  </div>
+  <div class="myth-pair">
+    <div class="myth-cell m-side"><div class="cell-lbl">The story</div><p>"The compliance piece is too complicated. I will get it wrong and lose my license."</p></div>
+    <div class="myth-cell t-side"><div class="cell-lbl">What is actually true</div><p>The MCA milestone process is nine steps over 24 months. Each step has a clear list of what you need and what your books need to show. My role is to walk you through all nine so you never have to guess what comes next.</p></div>
+  </div>
+  <div class="myth-pair">
+    <div class="myth-cell m-side"><div class="cell-lbl">The story</div><p>"Someone with more experience or bigger credentials will do this better than me."</p></div>
+    <div class="myth-cell t-side"><div class="cell-lbl">What is actually true</div><p>The most useful advisor knows the terrain, speaks plainly, and shows up with receipts. You bring what no credential can give anyone else — your community, your presence, and your purpose.</p></div>
+  </div>
+</div>
+
+<!-- FREEDOM BANNER -->
+<div class="freedom">
+  <div class="fb-lbl">Freedom Grow — Listed Sponsor</div>
+  <p>I sponsored Freedom Grow because I believe in the mission, not because it looked good on a list. The communities most affected by cannabis prohibition should benefit most from legalization. <em>That is not a marketing statement. It is why this practice exists.</em></p>
+</div>
+
+<!-- DOUBLE CTA -->
+<section class="dcta">
+  <div class="cta-panel left">
+    <span class="cp-label">Cannabis Advisory</span>
+    <h3>Ready to look fundable — not just compliant?</h3>
+    <p>Start with the Fundability Snapshot at $197. One clear report showing exactly where your financial picture stands, what funders will review, and what to address before your next capital raise or MCA inspection.</p>
+    <a href="page2a_cannabis_intake.html" class="btn-primary">Book the Fundability Snapshot <span class="btn-arrow">→</span></a>
+  </div>
+  <div class="cta-panel right">
+    <span class="cp-label">G4TC C.A.R.E.S.</span>
+    <h3>Want to know if your county's funds could support your idea?</h3>
+    <p>Book a C.A.R.E.S. Readiness Call. In 20 minutes we look at your county's CRRF allocation, your program concept, and whether there is a real path to funding you can start building toward now.</p>
+    <a href="page2b_cares_intake.html" class="btn-secondary">Start Your C.A.R.E.S. Call <span class="btn-arrow">→</span></a>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <img src="https://assets.cdn.filesafe.space/2fl3hkOM4QQnDOcFNHcW/media/6902f9285170a50e55155e6f.webp" alt="Gaines 4 The Culture LLC" style="height:30px;width:auto;display:block;filter:brightness(0) invert(1);margin-bottom:6px" loading="lazy">
+    <div class="fl-creds">
+      NACAT Certified Cannabis Seed Counter · NACVA Member · NATP Member<br>
+      MCBA Ally · Freedom Grow Sponsor · Maryland
+    </div>
+  </div>
+  <div>
+    <div class="footer-links">
+      <a href="page2a_cannabis_intake.html">Cannabis Advisory</a>
+      <a href="page2b_cares_intake.html">G4TC C.A.R.E.S.</a>
+      <a href="https://calendly.com/gaines4theculturellc/30min">Book a Call</a>
+      <a href="mailto:gaines4theculturellc@gmail.com">gaines4theculturellc@gmail.com</a>
+    </div>
+    <div class="fr" style="margin-top:12px">© 2026 Gaines 4 The Culture LLC</div>
+  </div>
+</footer>
 </body>
 </html>
